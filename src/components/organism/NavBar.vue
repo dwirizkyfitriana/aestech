@@ -2,6 +2,7 @@
 import { mdiHelpCircle } from '@mdi/js'
 import BranchMenu from '../molecules/BranchMenu.vue'
 import NotificationModal from '../molecules/NotificationModal.vue'
+import AvatarMenu from '../molecules/AvatarMenu.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import NotificationModal from '../molecules/NotificationModal.vue'
       <NotificationModal />
       <svg-icon type="mdi" :path="mdiHelpCircle" />
       <div class="flex items-center gap-4">
-        <img src="@/assets/images/avatar.png" alt="" />
+        <AvatarMenu />
         <div>
           <h1 class="text-black font-bold text-xl">BagasBayu</h1>
           <p class="text-black">Manajer</p>
