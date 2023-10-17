@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { mdiBell, mdiHelpCircle } from '@mdi/js'
+import { mdiHelpCircle } from '@mdi/js'
 import BranchMenu from '../molecules/BranchMenu.vue'
+import NotificationModal from '../molecules/NotificationModal.vue'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import BranchMenu from '../molecules/BranchMenu.vue'
     <BranchMenu />
 
     <div class="flex gap-4 items-center">
-      <svg-icon type="mdi" :path="mdiBell" />
+      <NotificationModal />
       <svg-icon type="mdi" :path="mdiHelpCircle" />
       <div class="flex items-center gap-4">
         <img src="@/assets/images/avatar.png" alt="" />
