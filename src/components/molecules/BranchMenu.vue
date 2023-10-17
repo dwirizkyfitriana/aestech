@@ -1,6 +1,21 @@
 <script setup lang="ts">
+import { useBranchesStore } from '@/stores/branches'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { mdiChevronDown, mdiHospitalBuilding } from '@mdi/js'
+import { onMounted } from 'vue'
+import BranchMenuItem from '../atoms/BranchMenuItem.vue'
+
+const branchesStore = useBranchesStore()
+
+const fetchBranches = async () => {
+  if (branchesStore.branches.length > 0) return
+
+  await branchesStore.getBranches()
+}
+
+onMounted(async () => {
+  await fetchBranches()
+})
 </script>
 
 <template>
@@ -28,16 +43,12 @@ import { mdiChevronDown, mdiHospitalBuilding } from '@mdi/js'
       >
         <h1 class="font-bold text-2xl">Data Cabang</h1>
 
-        <MenuItem v-slot="{ active }">
-          <button
-            :class="[
-              active ? 'text-orange' : 'text-gray-900',
-              'group flex w-full items-center rounded-md py-2 text-sm'
-            ]"
-          >
-            Cabang Bandung
-          </button>
-        </MenuItem>
+        <BranchMenuItem
+          v-for="branch in branchesStore.branches.slice(0, 4)"
+          :key="branch.id"
+          :branch="branch"
+        />
+
         <MenuItem>
           <button
             class="bg-orange text-white rounded-[100px] py-2 px-3 mt-4"
