@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BranchCard from '@/components/atoms/BranchCard.vue'
 import PageTitle from '@/components/atoms/PageTitle.vue'
+import PaginationMenu from '@/components/molecules/PaginationMenu.vue'
 import { useBranchesStore } from '@/stores/branches'
 import { computed, onMounted, ref } from 'vue'
 
@@ -37,5 +38,9 @@ onMounted(async () => {
 
   <div class="mt-14 grid grid-cols-2 max-md:grid-cols-1 gap-3">
     <BranchCard v-for="branch in computedBranch" :key="branch.id" :branch="branch" />
+  </div>
+
+  <div class="w-full mt-12">
+    <PaginationMenu class="m-auto" />
   </div>
 </template>
