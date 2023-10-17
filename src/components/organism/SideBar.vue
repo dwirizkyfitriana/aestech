@@ -8,7 +8,9 @@ const isOpen = ref<number>()
 </script>
 
 <template>
-  <div class="bg-primary text-white flex flex-col items-center pb-12">
+  <div
+    class="bg-primary text-white flex flex-col items-center pb-12 h-full max-h-screen overflow-y-scroll"
+  >
     <div class="flex px-6 py-12 gap-4 justify-center items-center mb-12">
       <img class="h-4/5" src="@/assets/images/logo.svg" alt="" />
       <img src="@/assets/images/logo-name.svg" alt="" />

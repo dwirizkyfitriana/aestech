@@ -9,7 +9,7 @@ import NavBar from './components/organism/NavBar.vue'
     <SideBar />
     <div class="relative bg-light-grey">
       <NavBar />
-      <div class="w-[90%] py-8 m-auto">
+      <div class="h-full max-h-[calc(100vh-110px)] overflow-x-hidden py-8 px-12 m-auto">
         <RouterView />
       </div>
     </div>
