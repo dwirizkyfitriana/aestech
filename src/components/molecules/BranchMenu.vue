@@ -38,9 +38,14 @@ import { mdiChevronDown, mdiHospitalBuilding } from '@mdi/js'
             Cabang Bandung
           </button>
         </MenuItem>
-        <button class="bg-orange text-white rounded-[100px] py-2 px-3 mt-4">
-          Lihat Semua Cabang
-        </button>
+        <MenuItem>
+          <button
+            class="bg-orange text-white rounded-[100px] py-2 px-3 mt-4"
+            @click="$router.push('/branches')"
+          >
+            Lihat Semua Cabang
+          </button>
+        </MenuItem>
       </MenuItems>
     </transition>
   </Menu>

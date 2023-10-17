@@ -1,6 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageTitle from '@/components/atoms/PageTitle.vue'
+</script>
 
 <template>
-  <h1 class="font-bold text-3xl">Performa Klinik Cabang Bandung</h1>
-  <p>Lihat performa dan laporan klinik</p>
+  <PageTitle title="Performa Klinik Cabang Bandung" subtitle="Lihat performa dan laporan klinik" />
 </template>
