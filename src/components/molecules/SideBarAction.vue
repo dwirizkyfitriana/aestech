@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SideBarItem as TSideBarItem } from '@/constants/sidebar'
+import type { SideBarItem as TSideBarItem } from '@/@types/sidebar'
 import SideBarItem from '../atoms/SideBarItem.vue'
 import { ref } from 'vue'
 
@@ -22,7 +22,7 @@ const isOpenChild = ref<number>()
       :item="item"
       :is-open="isOpen"
       :is-chevron="isChevron"
-      :class="{ 'text-orage': active }"
+      :class="{ 'text-orange': active }"
     />
 
     <div class="ml-3 space-y-3" v-if="isOpen && item.children?.length" @click.stop="">

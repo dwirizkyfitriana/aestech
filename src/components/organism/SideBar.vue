@@ -2,7 +2,7 @@
 import sidebar from '@/constants/sidebar'
 
 import { ref } from 'vue'
-import SideBarAction from '../molecules/SideBarAction.vue';
+import SideBarAction from '../molecules/SideBarAction.vue'
 
 const isOpen = ref<number>()
 </script>

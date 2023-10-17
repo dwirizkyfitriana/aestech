@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SideBarItem } from '@/constants/sidebar'
+import type { SideBarItem } from '@/@types/sidebar'
 import { mdiChevronDown, mdiChevronRight } from '@mdi/js'
 
 type Props = {

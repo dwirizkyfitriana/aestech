@@ -1,3 +1,4 @@
+import type { SideBarItem } from '@/@types/sidebar'
 import {
   mdiViewDashboard,
   mdiChartLine,
@@ -39,12 +40,6 @@ import {
   mdiOfficeBuilding,
   mdiFilePlus
 } from '@mdi/js'
-
-export type SideBarItem = {
-  icon: string
-  label: string
-  children?: SideBarItem[]
-}
 
 export default [
   {

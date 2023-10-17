@@ -2,12 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    colors: {
-      primary: '#053D41',
-      white: '#FFFFFF',
-      orage: '#F58342'
-    },
-    extend: {}
+    extend: {
+      colors: {
+        primary: '#053D41',
+        white: '#FFFFFF',
+        orange: '#F58342',
+        black: '#1B1B1B',
+        'light-grey': '#F8F8F8'
+      }
+    }
   },
   plugins: []
 }
