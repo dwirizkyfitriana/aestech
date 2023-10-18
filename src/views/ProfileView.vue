@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PageTitle from '@/components/atoms/PageTitle.vue'
 import ProfileActionCard from '@/components/atoms/ProfileActionCard.vue'
+import SaveButton from '@/components/atoms/SaveButton.vue'
 import TabItem from '@/components/atoms/TabItem.vue'
 import ProfileCard from '@/components/molecules/ProfileCard.vue'
 import ProfileInfoCard from '@/components/molecules/ProfileInfoCard.vue'
@@ -54,5 +55,12 @@ onMounted(async () => {
         <ProfileSocialCard />
       </div>
     </transition>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3 mt-8">
+    <div></div>
+    <div class="col-span-2 m-auto">
+      <SaveButton />
+    </div>
   </div>
 </template>
