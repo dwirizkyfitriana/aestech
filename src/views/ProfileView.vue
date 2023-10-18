@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import PageTitle from '@/components/atoms/PageTitle.vue'
+import ProfileActionCard from '@/components/atoms/ProfileActionCard.vue'
+import TabItem from '@/components/atoms/TabItem.vue'
+import ProfileCard from '@/components/molecules/ProfileCard.vue'
+import ProfileInfoCard from '@/components/molecules/ProfileInfoCard.vue'
+import ProfileInputCard from '@/components/molecules/ProfileInputCard.vue'
+import ProfileSocialCard from '@/components/molecules/ProfileSocialCard.vue'
 import { useUserStore } from '@/stores/user'
-import { mdiFacebook, mdiInstagram, mdiTwitter } from '@mdi/js'
-import { onMounted } from 'vue'
+import { mdiClipboardSearchOutline, mdiCog } from '@mdi/js'
+import { onMounted, ref } from 'vue'
 
 const userStore = useUserStore()
+
+const tab = ref<'info' | 'setting'>('info')
 
 onMounted(async () => {
   await userStore.getUser()
@@ -14,26 +22,37 @@ onMounted(async () => {
 <template>
   <PageTitle title="Profile Akun" subtitle="Lihat profil dan kelola data akun" />
 
-  <div class="grid grid-cols-[445px_1fr] items-center mt-12">
-    <div class="bg-white w-[445px] rounded-2xl p-12 flex flex-col items-center">
-      <img class="rounded-xl" :src="userStore.user?.avatar" alt="" />
-      <h1 class="font-bold text-2xl mt-4">{{ userStore.user?.fullname }}</h1>
-      <p>{{ userStore.user?.position }}</p>
-
-      <div class="flex gap-3 items-center text-grey-75 mt-6">
-        <a :href="userStore.user?.social_media[0].instagram" target="_blank"
-          ><svg-icon role="button" type="mdi" :path="mdiInstagram"
-        /></a>
-        <a :href="userStore.user?.social_media[0].twitter" target="_blank"
-          ><svg-icon role="button" type="mdi" :path="mdiTwitter"
-        /></a>
-        <a :href="userStore.user?.social_media[0].facebook" target="_blank"
-          ><svg-icon role="button" type="mdi" :path="mdiFacebook"
-        /></a>
-      </div>
-      <h1 class="font-bold text-2xl mt-4">{{ userStore.user?.branch.name }}</h1>
-      <p>{{ userStore.user?.branch.address }}</p>
-    </div>
+  <div class="grid grid-cols-3 gap-3 mt-12">
     <div></div>
+    <div class="grid grid-cols-2 col-span-2">
+      <TabItem
+        :class="{ 'text-orange border-b-orange': tab === 'info' }"
+        label="Informasi Pribadi"
+        :icon="mdiClipboardSearchOutline"
+        @click="tab = 'info'"
+      />
+      <TabItem
+        :class="{ 'text-orange border-b-orange': tab === 'setting' }"
+        label="Pengaturan Akun"
+        :icon="mdiCog"
+        @click="tab = 'setting'"
+      />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3 mt-6">
+    <ProfileCard />
+    <transition name="fade" mode="out-in">
+      <div class="space-y-3 col-span-2" v-if="tab === 'info'">
+        <ProfileInfoCard />
+        <ProfileInputCard />
+      </div>
+      <div class="space-y-3 col-span-2" v-else>
+        <ProfileActionCard label="Ubah Kode Akses" />
+        <ProfileActionCard label="Ubah Password" />
+
+        <ProfileSocialCard />
+      </div>
+    </transition>
   </div>
 </template>
