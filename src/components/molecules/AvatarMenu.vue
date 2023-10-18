@@ -7,16 +7,10 @@ const userStore = useUserStore()
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left z-50">
-    <div>
-      <MenuButton class="">
-        <img
-          class="cursor-pointer rounded-full mx-w-[72px] max-h-[72px]"
-          :src="userStore.user?.avatar"
-          alt=""
-        />
-      </MenuButton>
-    </div>
+  <Menu as="div" class="relative inline-block text-left z-50 max-w-[72px] max-h-[72px]">
+    <MenuButton class="">
+      <img class="cursor-pointer rounded-full" :src="userStore.user?.avatar" alt="" />
+    </MenuButton>
 
     <transition
       enter-active-class="transition duration-100 ease-out"
