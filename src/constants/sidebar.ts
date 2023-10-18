@@ -48,7 +48,7 @@ export default [
     children: [
       { icon: mdiGraph, label: 'CRM' },
       { icon: mdiChartPie, label: 'Analisis' },
-      { icon: mdiCart, label: 'Penjualan' },
+      { icon: mdiCart, label: 'Penjualan', href: '/?sales' },
       { icon: mdiFinance, label: 'Executif' }
     ]
   },

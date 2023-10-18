@@ -35,7 +35,7 @@ const isOpenChild = ref<number>()
         :key="index"
         :item="child"
         :is-open="isOpenChild === index"
-        :active="isOpenChild === index"
+        :active="$route.fullPath.includes(child.href as string)"
         :is-chevron="Boolean(child.children && child.children.length > 0)"
         :stack="3"
         @click="isOpenChild === index ? (isOpenChild = undefined) : (isOpenChild = index)"

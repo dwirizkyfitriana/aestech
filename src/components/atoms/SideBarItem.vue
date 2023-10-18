@@ -12,7 +12,10 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="flex items-center justify-between cursor-pointer">
+  <div
+    class="flex items-center justify-between cursor-pointer"
+    @click="item.href && $router.push(item.href)"
+  >
     <div class="flex gap-4">
       <svg-icon type="mdi" :path="item.icon" />
       <h1>{{ item.label }}</h1>
