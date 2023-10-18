@@ -7,6 +7,7 @@ import ProfileCard from '@/components/molecules/ProfileCard.vue'
 import ProfileInfoCard from '@/components/molecules/ProfileInfoCard.vue'
 import ProfileInputCard from '@/components/molecules/ProfileInputCard.vue'
 import ProfileSocialCard from '@/components/molecules/ProfileSocialCard.vue'
+import ModalChangePassword from '@/components/organism/ModalChangePassword.vue'
 import { useUserStore } from '@/stores/user'
 import { mdiClipboardSearchOutline, mdiCog } from '@mdi/js'
 import { onMounted, ref } from 'vue'
@@ -14,6 +15,8 @@ import { onMounted, ref } from 'vue'
 const userStore = useUserStore()
 
 const tab = ref<'info' | 'setting'>('info')
+const isACModalOpen = ref(false)
+const isPwModalOpen = ref(false)
 
 onMounted(async () => {
   await userStore.getUser()
@@ -49,8 +52,22 @@ onMounted(async () => {
         <ProfileInputCard />
       </div>
       <div class="space-y-3 col-span-2" v-else>
-        <ProfileActionCard label="Ubah Kode Akses" />
-        <ProfileActionCard label="Ubah Password" />
+        <ProfileActionCard label="Ubah Kode Akses" @click="isACModalOpen = true" />
+        <ProfileActionCard label="Ubah Password" @click="isPwModalOpen = true" />
+        <ModalChangePassword
+          title="Ubah Kode Akses"
+          label1="Kode Akses Sebelumnya"
+          label2="Kode Akses Baru"
+          :is-open="isACModalOpen"
+          @close="isACModalOpen = false"
+        />
+        <ModalChangePassword
+          title="Ubah Password"
+          label1="Password Sebelumnya"
+          label2="Password Baru"
+          :is-open="isPwModalOpen"
+          @close="isPwModalOpen = false"
+        />
 
         <ProfileSocialCard />
       </div>

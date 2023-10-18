@@ -4,7 +4,7 @@ import { mdiAccount, mdiHelpCircle, mdiLogoutVariant } from '@mdi/js'
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left">
+  <Menu as="div" class="relative inline-block text-left z-10">
     <div>
       <MenuButton class="">
         <img class="cursor-pointer" src="@/assets/images/avatar.png" alt="" />

@@ -19,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left">
+  <Menu as="div" class="relative inline-block text-left z-10">
     <div>
       <MenuButton class="">
         <div class="flex gap-4 items-center text-2xl cursor-pointer">
