@@ -3,6 +3,17 @@ import { mdiHelpCircle } from '@mdi/js'
 import BranchMenu from '../molecules/BranchMenu.vue'
 import NotificationModal from '../molecules/NotificationModal.vue'
 import AvatarMenu from '../molecules/AvatarMenu.vue'
+import { useUserStore } from '@/stores/user'
+import { onMounted } from 'vue'
+
+const userStore = useUserStore()
+
+const truncateString = (inputString: string) =>
+  inputString.trim().split(/\s+/).slice(0, 2).join(' ')
+
+onMounted(async () => {
+  if (!userStore.user) await userStore.getUser()
+})
 </script>
 
 <template>
@@ -15,8 +26,10 @@ import AvatarMenu from '../molecules/AvatarMenu.vue'
       <div class="flex items-center gap-4">
         <AvatarMenu />
         <div>
-          <h1 class="text-black font-bold text-xl">BagasBayu</h1>
-          <p class="text-black">Manajer</p>
+          <h1 class="text-black font-bold text-xl">
+            {{ userStore.user && truncateString(userStore.user?.fullname) }}
+          </h1>
+          <p class="text-black">{{ userStore.user?.position }}</p>
         </div>
       </div>
     </div>

@@ -4,8 +4,10 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { mdiChevronDown, mdiHospitalBuilding } from '@mdi/js'
 import { onMounted } from 'vue'
 import BranchMenuItem from '../atoms/BranchMenuItem.vue'
+import { useUserStore } from '@/stores/user'
 
 const branchesStore = useBranchesStore()
+const userStore = useUserStore()
 
 const fetchBranches = async () => {
   if (branchesStore.branches.length > 0) return
@@ -19,12 +21,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left z-10">
+  <Menu as="div" class="relative inline-block text-left z-50">
     <div>
       <MenuButton class="">
         <div class="flex gap-4 items-center text-2xl cursor-pointer">
           <svg-icon type="mdi" :path="mdiHospitalBuilding" />
-          <h1>Cabang Bandung</h1>
+          <h1>{{ userStore.user?.branch.name }}</h1>
           <svg-icon type="mdi" :path="mdiChevronDown" />
         </div>
       </MenuButton>

@@ -1,13 +1,20 @@
 <script setup lang="ts">
+import { useUserStore } from '@/stores/user'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { mdiAccount, mdiHelpCircle, mdiLogoutVariant } from '@mdi/js'
+
+const userStore = useUserStore()
 </script>
 
 <template>
-  <Menu as="div" class="relative inline-block text-left z-10">
+  <Menu as="div" class="relative inline-block text-left z-50">
     <div>
       <MenuButton class="">
-        <img class="cursor-pointer" src="@/assets/images/avatar.png" alt="" />
+        <img
+          class="cursor-pointer rounded-full mx-w-[72px] max-h-[72px]"
+          :src="userStore.user?.avatar"
+          alt=""
+        />
       </MenuButton>
     </div>
 
