@@ -8,6 +8,6 @@ defineProps<Props>()
 
 <template>
   <div class="w-full bg-grey-50 h-2 rounded-full">
-    <div class="bg-orange h-2 rounded-full" :class="`w-[${progress}%]`">&nbsp;</div>
+    <div class="bg-orange h-2 rounded-full" :style="`width: ${progress}%`">&nbsp;</div>
   </div>
 </template>

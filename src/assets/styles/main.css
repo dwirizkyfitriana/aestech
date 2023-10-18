@@ -21,3 +21,14 @@ body {
 .fade-leave-to {
   opacity: 0;
 }
+
+.header-bg {
+  background-color: #f8f8f8 !important;
+}
+
+table,
+th,
+tr,
+td {
+  @apply !border-b-0 !border-r-0 !border-l-0;
+}
